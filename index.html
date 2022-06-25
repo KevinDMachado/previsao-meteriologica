@@ -14,27 +14,23 @@
 
     <section>
         <div class="previsao">
-            <h1>Temperatura</h1>
-            <p>sensacao termica</p>
+            <p id="desc">Status tempo</p>
+            <canvas id="icone" width="128" height="128"></canvas>
+            <h1 id="temperatura">Temperatura</h1>
+            <p id="sensacao">sensacao termica</p>
         </div>
 
-        <div>
-            <div class="infoextra">
-                <p>umidade</p>
-                <p>velocidade do vento</p>
-                <p>pressao atmosferica</p>
-            </div>
-    
-            <div class="img">
-                <p>icone</p>
-            </div>
-        </div>
-        
+        <div class="infoextra">            
+            <p id="umidade">umidade</p>
+            <p id="velvento">velocidade do vento</p>
+           
+        </div>        
     </section>
 
     <footer>
         <p id="local">localização</p>
     </footer>
 </body>
+<script src="skycons.js"></script>
 <script src="script.js"></script>
 </html>
