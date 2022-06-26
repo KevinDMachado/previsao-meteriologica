@@ -1,12 +1,13 @@
 body {
-    background: linear-gradient(rgb(72, 118, 233), rgb(73, 45, 138));
-    font: normal 18pt Arial;
-}
+    background: rgb(100, 140, 250);
+    font: normal 16pt Arial;
+    margin: 0;
+    text-align: center;
+}   
 
 header {
     color: white;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-    text-align: center;    
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);  
 }
 
 section {
@@ -19,18 +20,7 @@ section {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
 }
 
-.previsao {
-    text-align: center;
-}
-
-.infoextra {
-    text-align: justify;
-    font-size: 16pt ;
-    padding-left: 15px;
-}
-
 footer {
     color: white;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-    text-align: center;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
 }

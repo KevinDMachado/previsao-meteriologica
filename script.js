@@ -1,5 +1,5 @@
 const situacao = document.querySelector('#desc');
-const img = document.querySelector('#img');
+const img = document.querySelector('#icone');
 const temperatura = document.querySelector('#temperatura');
 const sensacao = document.querySelector('#sensacao');
 const umidade = document.querySelector('#umidade');
@@ -14,7 +14,7 @@ window.addEventListener('load', ()=>{
         navigator.geolocation.getCurrentPosition(posi => {
             long = posi.coords.longitude;
             lat = posi.coords.latitude;
-            const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly&lang=pt-br&units=metric&appid=9ee4564d27f38319648476c09b566e86`
+            const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=9e438fad6ff2388466114324a5cc9307&units=metric`
 
             fetch(api)
             .then(resposta =>{
@@ -22,33 +22,40 @@ window.addEventListener('load', ()=>{
             })
             .then(dados =>{
                 console.log(dados);
-                const temp = dados.current.temp
-                const sens = dados.current.feels_like              
-                const umid = dados.current.humidity
-                const velven = dados.current.wind_speed
-                const icone= dados.current.weather.icon
-                const localidade = dados.timezone
-                const desc = dados.current.weather[0].description
+                const temp = dados.main.temp
+                const sens = dados.main.feels_like              
+                const umid = dados.main.humidity
+                const velven = dados.wind.speed
+                const localidade = `${dados.name}, ${dados.sys.country}`
+                const desc = dados.weather[0].main
+                const icone = dados.weather[0].icon
 
                 temperatura.textContent = Math.round(temp) + '°C';
                 sensacao.textContent =`Sensação termica: ${Math.round(sens)}°C`;
                 umidade.textContent = `Umidade: ${umid}%`
                 velvento.textContent = `Velocidade do vento: ${Math.round(velven*3.6).toFixed(0)} Km/h`
-                local.textContent = localidade
-                situacao.textContent = desc
-                
-                icones(icone,document.querySelector('#icone'))
+                local.textContent = localidade;
+                situacao.textContent = desc;
+                img.innerHTML = `<img src="icons/${icone}.png"/>`
 
+                if (situacao.textContent = "Clouds") {
+                    situacao.textContent ="Nublado"
+                } else if (situacao.textContent = "Drizzle") {
+                    situacao.textContent ="Garoando"
+                }  else if (situacao.textContent = "Rain") {
+                    situacao.textContent ="Chuvoso"
+                }  else if (situacao.textContent = "Snow") {
+                    situacao.textContent ="Nevando"
+                }  else if (situacao.textContent = "Clear") {
+                    situacao.textContent ="Céu Limpo"
+                }  else if ((situacao.textContent = "Mist") || (situacao.textContent = "Haze") || (situacao.textContent = "Fog")) {
+                    situacao.textContent ="Névoa"
+                }  else if (situacao.textContent = "Squail") {
+                    situacao.textContent ="Ventania"
+                }  else if (situacao.textContent = "Clouds") {
+                    situacao.textContent ="Nublado"
+                } 
             })
         })
     } 
-
-    function icones(icone,iconeId) {
-        const skycons = new Skycons({color:"blue"});
-        const iconeAtual = icone.replace(/-/gi, "_").toUppercCase()
-        skycons.play();
-        return skycons.set(iconeID, Skycons[iconeAtual])
-    }
 })
-
-

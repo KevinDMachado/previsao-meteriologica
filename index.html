@@ -10,27 +10,29 @@
 <body>
     <header>
         <h2>Previsão do tempo</h2>
+        <p id="local">localização</p>
     </header>
 
     <section>
         <div class="previsao">
-            <p id="desc">Status tempo</p>
-            <canvas id="icone" width="128" height="128"></canvas>
-            <h1 id="temperatura">Temperatura</h1>
-            <p id="sensacao">sensacao termica</p>
+            <p id="desc"></p>
+            <div id="icone">
+                <img src="icons/unknown.png">
+            </div>
+            <h1 id="temperatura"></h1>
+            <p id="sensacao"></p>
         </div>
 
         <div class="infoextra">            
-            <p id="umidade">umidade</p>
-            <p id="velvento">velocidade do vento</p>
+            <p id="umidade"></p>
+            <p id="velvento"></p>
            
         </div>        
     </section>
 
     <footer>
-        <p id="local">localização</p>
+        <p>Kevin Machado</p>
     </footer>
 </body>
-<script src="skycons.js"></script>
 <script src="script.js"></script>
 </html>
